@@ -1,6 +1,6 @@
-# Verifer-Js
+# IncentHealthApi
 
-Welcome to ZK-Verifier-Backend. This project is a JavaScript library for ZK proof verification and validation of Privado ID verifiable credentials(VCs).
+Welcome to  incentHealth Backend. This project is a JavaScript library verifying patients as humans and also the consent credentials(VCs) for their medical data.
 
 ## Installation
 
@@ -42,10 +42,3 @@ Start the server
 node index.js
 ```
 
-## Documentation
-
-For detailed documentation, please refer to the [Verifer-Js Documentation](https://docs.privado.id/docs/verifier/verification-library/verifier-setup).
-
-## Contributing
-
-Contributions are welcome! If you have any ideas, bug reports, or feature requests, please open an issue or submit a pull request on the [Verifer-Js GitHub repository](https://github.com/ilvcs/zk-verifier-backend.git).
