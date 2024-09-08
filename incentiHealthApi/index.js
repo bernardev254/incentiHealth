@@ -138,25 +138,20 @@ async function getAuthRequest(req, res) {
 	request.id = "7f38a193-0918-4a48-9fac-36adfdb8b542";
 	request.thid = "7f38a193-0918-4a48-9fac-36adfdb8b542";
 
-	const proofRequest ={
-		"circuitId": "credentialAtomicQuerySigV2",
-		"id": 1725727106,
-		"query": {
-		  "allowedIssuers": [
-			"*"
-		  ],
-		  "context": "ipfs://QmYKdpMhrtE6sTC4RePetSU71sNGSJfyz54DavvAB1d2qA",
-		  "type": "proofOfConsent",
-		  "credentialSubject": {
-			"consent": {
-			  "$eq": true
-			}
-		  }
-		}
-	  };
-	
-	
-	
+	const proofRequest = {
+		circuitId: "credentialAtomicQuerySigV2",
+		id: 1725432751,
+		query: {
+			allowedIssuers: ["*"],
+			context: "https://ilvcs.github.io/JsonHosting/poh-context.json",
+			type: "pohcheck",
+			credentialSubject: {
+				human: {
+					$eq: true,
+				},
+			},
+		},
+	};	
 
 	//console.log(proofRequest);
 	const scope = request.body.scope ?? [];

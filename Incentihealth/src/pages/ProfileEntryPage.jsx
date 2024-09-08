@@ -71,7 +71,7 @@ const ProfileEntryPage = (props) => {
 			localStorage.setItem("email", email);
 			localStorage.setItem("phoneNumber", phoneNumber);
 
-			router.push("/VerificationPage/ProveGraduate");
+			router.push("/VerificationPage/proveConsent");
 		} catch (error) {
 			toast({
 				title: "Error occurred.",
@@ -105,7 +105,7 @@ const ProfileEntryPage = (props) => {
 						boxSize="30px" // Adjust the size of the logo
 					/>
 					<Heading size="lg" color="blue.400">
-						Profile Details
+					Proof of consent
 					</Heading>
 				</HStack>
 

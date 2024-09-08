@@ -8,7 +8,7 @@ const BACKEND_VERIFIER_API_URL = "http://localhost:8000";
 
 const VERIFIER_BACKEND_API_URL_FOR_SIGNIN = `${BACKEND_VERIFIER_API_URL}/api/signIn`;
 
-const VERIFIER_BACKEND_API_URL_FOR_PROOF_VERIRY = `${BACKEND_VERIFIER_API_URL}/api/proveGraduate`;
+const VERIFIER_BACKEND_API_URL_FOR_PROOF_VERIRY = `${BACKEND_VERIFIER_API_URL}/api/proveConsent`;
 
 const VERIFIER_BACKEND_API_URL_FOR_STATUS = `${BACKEND_VERIFIER_API_URL}/api/status`;
 
@@ -23,7 +23,7 @@ const VerificationPage = () => {
 		if (router.query.queryType === "SignIn") {
 			console.log("Sign In is Fetching", VERIFIER_BACKEND_API_URL_FOR_SIGNIN);
 			fetchData(VERIFIER_BACKEND_API_URL_FOR_SIGNIN);
-		} else if (router.query.queryType === "ProveGraduate") {
+		} else if (router.query.queryType === "proveConsent") {
 			fetchData(VERIFIER_BACKEND_API_URL_FOR_PROOF_VERIRY);
 		}
 	}, [router.query.queryType]);
@@ -74,8 +74,8 @@ const VerificationPage = () => {
 		intervalId = setInterval(() => {
 			if (router.query.queryType === "SignIn") {
 				checkAuthStatus(sessionId);
-			} else if (router.query.queryType === "ProveGraduate") {
-				checkGraduationStatus(sessionId);
+			} else if (router.query.queryType === "proveConsent") {
+				checkConsentStatus(sessionId);
 			}
 		}, interval);
 
@@ -109,7 +109,7 @@ const VerificationPage = () => {
 		}
 	};
 
-	const checkGraduationStatus = async (sessionId) => {
+	const checkConsentStatus = async (sessionId) => {
 		try {
 			const response = await axios.get(VERIFIER_BACKEND_API_URL_FOR_STATUS, {
 				params: {
@@ -124,7 +124,7 @@ const VerificationPage = () => {
 				console.log(`	Message: ${data.body.message}`);
 				/*TODO: You might need to handle ZWT token in realworld applicaiton */
 				// Handle success case
-				localStorage.setItem("isGraduate", "true");
+				localStorage.setItem("isConsent", "true");
 				router.push("/JobBoardPage");
 			}
 		} catch (error) {
